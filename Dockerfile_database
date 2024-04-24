@@ -1,0 +1,9 @@
+FROM python:3.9
+
+ADD Database ./Database
+ADD requirements.txt .
+
+RUN pip install -r requirements.txt
+RUN python ./Database/init_db.py
+
+CMD ["python", "./Database/start_api.py"]
